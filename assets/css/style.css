@@ -37,6 +37,10 @@ a {
     color: inherit;
 }
 
+a:hover {
+    transform: scale(1.1);
+}
+
 ul {
     list-style: none;
 }
@@ -55,6 +59,7 @@ ul {
     display: flex;
     align-items: center;
 }
+
 
 .contenedor-navbar {
     display: flex;
@@ -84,6 +89,7 @@ ul {
 .links-nav a:hover {
     color: var(--vibrant-red); /* Cambia de color al pasar el mouse */
     transition: color 0.3s ease;
+    transform: scale(1.1);
 }
 
 
@@ -153,6 +159,10 @@ h2 {
     box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 
+.bloque-nosotros:hover {
+    transform: scale(1.1);
+}
+
 .texto-nosotros {
     flex: 1;
     font-size: 0.95rem;
@@ -172,6 +182,12 @@ h2 {
 .seccion-mision-vision {
     display: flex;
     gap: 30px;
+}
+.mision:hover {
+    transform: scale(1.1);
+}
+.vision:hover{
+    transform: scale(1.1);
 }
 
 .mision, .vision {
@@ -217,6 +233,9 @@ h2 {
     box-shadow: 0 2px 8px rgba(0,0,0,0.02);
 }
 
+.servicio:hover {
+    transform: scale(1.1);
+}
 .servicio img {
     width: 100%;
     height: 160px;
@@ -296,6 +315,7 @@ h2 {
 
 .boton:hover {
     opacity: 0.85;
+    transform: scale(1.1);
 }
 
 
