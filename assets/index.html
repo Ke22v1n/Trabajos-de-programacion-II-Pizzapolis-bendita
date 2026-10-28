@@ -3,117 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizzápolis Bendita</title>
+    <meta name="description" content="Pizzápolis Bendita: pizza artesanal al horno de leña con masa de fermentación natural de 48 horas.">
+    <title>Pizzápolis Bendita — Pizza artesanal al horno de leña</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <!--Barra de Navegacion -->
-   <nav class="navbar">
-    <div class="contenedor-navbar">
-        <a href="index.html" class="logoimg">
-            <img src="img/logo.jpeg" alt="logo">
-        </a>
-        <span class="brand-title">🍕 Pizzápolis Bendita </span>
-        <ul class="links-nav">
-            <li><a href="inicio">inicio</a></li>
-            <li><a href="nosotros">Nosotros</a></li>
-            <li><a href="menu">Menu</a></li>
-            <li><a href="carrito">carrito</a></li>
-            <li><a href="contactos">Contactos</a></li>
-        </ul>
-    </div>
-   </nav>
+    <nav class="navbar">
+        <div class="contenedor-navbar">
 
-   <!--cabecera-->
-   <header id="inicio" class="header">
-    <div class="contenedor-header">
-        <div class="contenido-heder">
-            <h1>Pizzápolis Bendita</h1>
-            <p>Sabor artesanal al horno de leña. ¡La bendición que tu paladar estaba esperando!</p>
-        </div>
-        <div class="logo-header">
-            <img src="img/logo.jpeg" alt="logo">
-        </div>
-    </div>
-   </header>
+            <div class="marca">
+                <a href="#inicio" class="logoimg" aria-label="Volver al inicio de la página">
+                    <img src="img/logo.jpeg" alt="Logo de Pizzápolis Bendita">
+                </a>
+                <span class="brand-title">🍕 Pizzápolis Bendita</span>
+            </div>
 
-   <!-- Contenido Principal -->
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-label="Abrir o cerrar el menú">
+
+            <label for="menu-toggle" class="menu-hamburguesa">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <ul class="links-nav">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#mision-vision">Misión y Visión</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <header id="inicio" class="header">
+        <div class="contenedor-header">
+
+            <div class="contenido-header">
+                <h1>Pizzápolis Bendita</h1>
+                <p>Sabor artesanal al horno de leña. ¡La bendición que tu paladar estaba esperando!</p>
+            </div>
+
+            <div class="logo-header">
+                <img src="img/logo.jpeg" alt="Logo de Pizzápolis Bendita">
+            </div>
+
+        </div>
+    </header>
+
     <main class="contenedor-main">
 
-        <!-- 3) Sección Acerca de (Información de la empresa) -->
-        <section id="nosotros" class="seccion-nosotros">
+        <section id="nosotros">
             <h2>Nuestra Historia</h2>
+
             <div class="bloque-nosotros">
                 <div class="texto-nosotros">
                     <p>En <strong>Pizzápolis Bendita</strong> nacimos con la pasión de llevar la auténtica pizza artesanal a otro nivel. Elaboramos nuestras masas con un proceso de fermentación natural de 48 horas, lo que le otorga un crujido perfecto y una digestión ligera.</p>
                     <p>Utilizamos ingredientes 100% frescos, salsas con tomates naturales y quesos seleccionados para que cada porción sea una verdadera experiencia celestial.</p>
                 </div>
-                <img src="img/Pizza completa.jpeg" alt="Horno artesanal de Pizzápolis Bendita">
+                <img src="img/Pizza completa.jpeg" alt="Pizza completa recién salida del horno de leña">
             </div>
         </section>
 
-        <!-- 4) Sección Visión y Misión -->
-        <section id="mision-vision" class="seccion-mision-vision">
-            <div class="mision">
-                <h3>Nuestra Misión</h3>
-                <p>Ofrecer la mejor pizza artesanal de la ciudad, combinando técnicas tradicionales con ingredientes de primera calidad, brindando un servicio cálido que haga sentir a cada cliente como en casa.</p>
-            </div>
-            <div class="vision">
-                <h3>Nuestra Visión</h3>
-                <p>Convertirnos en la pizzería de referencia a nivel regional, reconocida por la excelencia de nuestra masa, la innovación en nuestros sabores y el amor por la buena gastronomía.</p>
+        <section id="mision-vision">
+            <h2>Misión y Visión</h2>
+
+            <div class="bloque-mision-vision">
+                <div class="mision">
+                    <h3>Nuestra Misión</h3>
+                    <p>Ofrecer la mejor pizza artesanal de la ciudad, combinando técnicas tradicionales con ingredientes de primera calidad, brindando un servicio cálido que haga sentir a cada cliente como en casa.</p>
+                </div>
+
+                <div class="vision">
+                    <h3>Nuestra Visión</h3>
+                    <p>Convertirnos en la pizzería de referencia a nivel regional, reconocida por la excelencia de nuestra masa, la innovación en nuestros sabores y el amor por la buena gastronomía.</p>
+                </div>
             </div>
         </section>
 
-        <!-- 5) Sección de Servicios / Productos (Menú) -->
-        <section id="menu" class="seccion-servicios">
+        <section id="menu">
             <h2>Especialidades del Menú</h2>
+
             <div class="grid-servicios">
-                <div class="servicio">
-                    <img src="img/margarita.jpg" alt="Pizza Margarita Bendita">
-                    <h4>Margherita Bendita</h4>
+
+                <article class="servicio">
+
+                    <img src="img/margarita.jpg" alt="Pizza Margherita Bendita" loading="lazy">
+                    <h3>Margherita Bendita</h3>
                     <p>Salsa de tomate casera, queso mozzarella fresco, hojas de albahaca y un toque de aceite de oliva virgen extra.</p>
                     <span class="precio">$10.00</span>
-                </div>
-                <div class="servicio">
-                    <img src="img/peperoni.jpg" alt="Pizza Pepperoni Celestial">
-                    <h4>Pepperoni Celestial</h4>
+                </article>
+
+                <article class="servicio">
+                    <img src="img/peperoni.jpg" alt="Pizza Pepperoni Celestial" loading="lazy">
+                    <h3>Pepperoni Celestial</h3>
                     <p>Abundante pepperoni crujiente sobre una generosa capa de queso mozzarella fundido y salsa de la casa.</p>
                     <span class="precio">$12.00</span>
-                </div>
-                <div class="servicio">
-                    <img src="img/vegetariana.jpg" alt="Pizza Huerta Sagrada">
-                    <h4>Huerta Sagrada</h4>
+                </article>
+
+                <article class="servicio">
+                    <img src="img/vegetariana.jpg" alt="Pizza Huerta Sagrada" loading="lazy">
+                    <h3>Huerta Sagrada</h3>
                     <p>Pimientos asados, champiñones frescos, aceitunas negras, cebolla morada y queso de cabra.</p>
                     <span class="precio">$11.50</span>
-                </div>
+                </article>
+
             </div>
         </section>
 
-        <!-- 6) Apartado de Contacto -->
         <section id="contacto" class="seccion-contacto">
             <h2>¡Pide tu Bendición!</h2>
-            <p>Haz tu pedido para llevar, reserva tu mesa o envíanos tus comentarios.</p>
-            <form>
-                <input type="text" placeholder="Tu Nombre Completo" required>
-                <input type="email" placeholder="Tu Correo Electrónico" required>
-                <input type="tel" placeholder="Número de Teléfono" required>
-                <textarea placeholder="Escribe tu pedido o mensaje aquí..." rows="6" required></textarea>
-                <button type="submit" class="boton">Enviar Pedido</button>
-            </form>
+            <p class="intro-contacto">Haz tu pedido para llevar, reserva tu mesa o envíanos tus comentarios.</p>
+
+            <div class="contenedor-contacto">
+
+                <div class="datos-contacto">
+                    <h3>Visítanos</h3>
+                    <p><strong>Dirección:</strong> Av. Principal, Local 12, Caracas</p>
+                    <p><strong>Teléfono:</strong> +58 412-000-0000</p>
+                    <p><strong>Correo:</strong> pedidos@pizzapolisbendita.com</p>
+                    <p><strong>Horario:</strong> Martes a domingo, 12:00 m. a 10:00 p. m.</p>
+                </div>
+
+                <form class="formulario-contacto">
+
+                    <div class="campo">
+                        <label for="nombre">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Valentina Garcia" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="correo">Correo electrónico</label>
+                        <input type="email" id="correo" name="correo" placeholder="Ej: cliente@correo.com" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefono">Número de teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Ej: 0412-0000000" required>
+                    </div>
+
+                    <div class="campo">
+                        <label for="mensaje">Pedido o mensaje</label>
+                        <textarea id="mensaje" name="mensaje" rows="6" placeholder="Escribe tu pedido o mensaje aquí..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="boton">Enviar Pedido</button>
+                </form>
+
+            </div>
         </section>
 
     </main>
 
-    <!-- 7) Pie de Página -->
     <footer class="pie-pagina">
         <div class="contenedor">
-            <p>&copy; 2026 Pizzápolis Bendita. Todos los derechos reservados.</p>
+            <p class="footer-empresa">🍕 Pizzápolis Bendita</p>
+
             <p><strong>Fecha de entrega:</strong> 28-10-2026</p>
-            <p><strong>Integrantes:</strong> Valentina Garcia (C.I. V-XX.XXX.XXX) y Kevin Ramirez (C.I. V-XX.XXX.XXX)</p>
+
+            <p><strong>Integrantes:</strong></p>
+            <ul class="lista-integrantes">
+
+                <li>Valentina Garcia — C.I. V-30.276.353</li>
+                <li>Kevin Ramirez — C.I. V-XX.XXX.XXX</li>
+            </ul>
+
+            <p class="footer-copy">&copy; 2026 Pizzápolis Bendita. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-
 </body>
 </html>
+

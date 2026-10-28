@@ -1,17 +1,23 @@
-/* ==========================================
-   1. VARIABLES Y CONFIGURACIÓN GLOBAL
-   ========================================== */
 :root {
-    --leafy-green: #388E3C;      /* Verde vibrante para detalles/botones */
-    --vibrant-red: #E53935;      /* Rojo tomate estilo pizza */
-    --yellow-bell: #FBC02D;      /* Amarillo dorado / pimiento */
-    --slate-grey: #607D8B;       /* Gris pizarra para textos secundarios o fondos */
-    --bg-dark: #1E1E1E;          /* Fondo oscuro del header */
-    --text-color: #333333;       /* Color de texto general */
+    --leafy-green: #388E3C;
+    --vibrant-red: #E53935;
+    --yellow-bell: #FBC02D;
+    --slate-grey: #607D8B;
+    --bg-dark: #1E1E1E;
+    --bg-cream: #FFF6EE;
+    --white: #FFFFFF;
+    --text-color: #333333;
+    --text-muted: #666666;
+    --border-soft: #EEEEEE;
+
+    --navbar-height: 70px;
+    --radius: 8px;
     --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
-/* Reseteo general para eliminar márgenes por defecto y uninear tamaños */
 * {
     margin: 0;
     padding: 0;
@@ -19,17 +25,18 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Hace que al hacer clic en el menú baje de forma suave */
-    font-family: var(--font-family);
-    color: var(--text-color);
-    background-color: #FFF6EE; /* Crema cálido: evita el blanco plano sin saturar */
+    scroll-behavior: smooth;
 }
 
-/* Contenedor genérico para centrar el contenido de la página */
-.contenedor {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: var(--bg-cream);
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
 }
 
 a {
@@ -37,30 +44,46 @@ a {
     color: inherit;
 }
 
-a:hover {
-    transform: scale(1.1);
+img {
+    max-width: 100%;
+    display: block;
 }
 
-ul {
-    list-style: none;
+.contenedor {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* ==========================================
-   2. BARRA DE NAVEGACIÓN (NAVBAR)
-   ========================================== */
 .navbar {
-    background-color: #FFFFFF;
-    height: 70px;
-    position: fixed; /* Mantiene la barra fija arriba al hacer scroll */
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
+    height: var(--navbar-height);
+    background-color: var(--white);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
     z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    justify-content: flex-start;
+}
+
+.contenedor-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
 }
 
 .logoimg img {
@@ -71,79 +94,71 @@ ul {
 }
 
 .brand-title {
-    color: rgb(62, 61, 61);
-    font-family: sans-serif;
     font-size: 1.2rem;
-    font-weight: bold;
-    margin-left: 50px;
-}
-
-.contenedor-navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.logo {
-
-    font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--text-color);
-    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #3E3D3D;
+    white-space: nowrap;
 }
 
 .links-nav {
     display: flex;
+    align-items: center;
     gap: 25px;
     font-size: 0.9rem;
     font-weight: 600;
-    text-transform: capitalize;
+}
+
+.links-nav a {
+    display: inline-block;
+    padding: 4px 0;
+    transition: color 0.25s ease;
 }
 
 .links-nav a:hover {
-    color: var(--vibrant-red); /* Cambia de color al pasar el mouse */
-    transition: color 0.3s ease;
-    transform: scale(1.1);
+    color: var(--vibrant-red);
 }
 
+.menu-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
 
-/* ==========================================
-   3. CABECERA (HEADER / HERO SECTION)
-   ========================================== */
-/* Franja compacta: fondo oscuro con degradado cálido + línea de acento */
+.menu-hamburguesa {
+
+    display: none;
+}
+
 .header {
-    background: linear-gradient(120deg, #1E1E1E 0%, #2A1D17 55%, #3A2118 100%);
-    color: #FFFFFF;
-    margin-top: 70px; /* Espacio para que no lo tape el navbar fijo */
+    margin-top: var(--navbar-height);
     padding: 24px 20px;
+    color: var(--white);
+    background: linear-gradient(120deg, #1E1E1E 0%, #2A1D17 55%, #3A2118 100%);
     border-bottom: 4px solid var(--vibrant-red);
 }
 
-/* Contenedor interno: texto a la izquierda, logo a la derecha */
 .contenedor-header {
-    max-width: 1100px;
-    margin: 0 auto;
-    min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-height: 150px;
 }
 
-.contenido-heder {
+.contenido-header {
     max-width: 620px;
 }
 
 .header h1 {
     font-size: 2.4rem;
     font-weight: 800;
-    margin-bottom: 10px;
     letter-spacing: 1px;
-    color: var(--yellow-bell); /* Acento de color dentro de la franja oscura */
+    margin-bottom: 10px;
+    color: var(--yellow-bell);
 }
 
 .header p {
@@ -158,7 +173,6 @@ ul {
 }
 
 .logo-header img {
-    display: block;
     width: 130px;
     height: 130px;
     object-fit: cover;
@@ -167,31 +181,35 @@ ul {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
 }
 
-
-/* ==========================================
-   4. CONTENIDO PRINCIPAL Y SECCIONES
-   ========================================== */
 .contenedor-main {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0 20px 40px;
 }
 
 section {
-    padding: 50px 0;
-    border-bottom: 1px solid #EEEEEE;
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-soft);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+header[id],
+section[id] {
+    scroll-margin-top: calc(var(--navbar-height) + 16px);
 }
 
 h2 {
     font-size: 1.8rem;
     font-weight: 800;
     text-align: center;
+    letter-spacing: 0.5px;
     margin-bottom: 30px;
     color: var(--text-color);
-    letter-spacing: 0.5px;
 }
 
-/* Pequeña línea de acento bajo los títulos de sección */
 h2::after {
     content: "";
     display: block;
@@ -202,26 +220,30 @@ h2::after {
     background-color: var(--vibrant-red);
 }
 
-
-/* --- Sección Nosotros --- */
 .bloque-nosotros {
     display: flex;
     align-items: center;
     gap: 40px;
-    background: #FFFFFF;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+
+    transition: box-shadow 0.25s ease;
 }
 
 .bloque-nosotros:hover {
-    transform: scale(1.1);
+    box-shadow: var(--shadow-hover);
 }
 
 .texto-nosotros {
     flex: 1;
     font-size: 0.95rem;
-    line-height: 1.6;
+    line-height: 1.7;
+}
+
+.texto-nosotros p + p {
+    margin-top: 12px;
 }
 
 .bloque-nosotros img {
@@ -232,69 +254,68 @@ h2::after {
     border-radius: 6px;
 }
 
-
-/* --- Sección Misión y Visión --- */
-.seccion-mision-vision {
+.bloque-mision-vision {
     display: flex;
     gap: 30px;
 }
-.mision:hover {
-    transform: scale(1.1);
-}
-.vision:hover{
-    transform: scale(1.1);
-}
 
-.mision, .vision {
+.mision,
+.vision {
     flex: 1;
-    background-color: #FFFFFF;
     padding: 30px;
-    border-radius: 8px;
-    border-left: 4px solid var(--leafy-green); /* Línea verde decorativa al lado */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    background-color: var(--white);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--leafy-green);
+    box-shadow: var(--shadow-soft);
+    transition: box-shadow 0.25s ease;
 }
 
 .vision {
-    border-left-color: var(--vibrant-red); /* Alterna el acento para dar más color */
+    border-left-color: var(--vibrant-red);
 }
 
-.mision h3, .vision h3 {
+.mision:hover,
+.vision:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.mision h3,
+.vision h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: var(--text-color);
 }
 
-.mision p, .vision p {
+.mision p,
+.vision p {
     font-size: 0.9rem;
-    color: #666666;
-    line-height: 1.5;
+    color: var(--text-muted);
+    line-height: 1.6;
 }
 
-
-/* ==========================================
-   5. SECCIÓN DE SERVICIOS / MENÚ (TARJETAS)
-   ========================================== */
 .grid-servicios {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Crea 3 columnas iguales */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
 .servicio {
-    background-color: #FFFFFF;
-    border: 1px solid #E0E0E0;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: left;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    padding: 15px;
+    background-color: var(--white);
+    border: 1px solid #E0E0E0;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .servicio:hover {
-    transform: scale(1.1);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
 }
+
 .servicio img {
     width: 100%;
     height: 160px;
@@ -303,104 +324,165 @@ h2::after {
     margin-bottom: 12px;
 }
 
-.servicio h4 {
-    font-size: 0.95rem;
+.servicio h3 {
+    font-size: 1rem;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
 .servicio p {
-    font-size: 0.8rem;
-    color: #666;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
     margin-bottom: 15px;
-    line-height: 1.4;
 }
 
 .precio {
+    margin-top: auto;
     font-size: 1rem;
     font-weight: 800;
     color: var(--vibrant-red);
 }
 
-
-/* ==========================================
-   6. APARTADO DE CONTACTO (FORMULARIO)
-   ========================================== */
-.seccion-contacto {
+.intro-contacto {
+    max-width: 620px;
+    margin: 0 auto 30px;
     text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
-.seccion-contacto p {
+.contenedor-contacto {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.datos-contacto {
+    padding: 30px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.datos-contacto h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.datos-contacto p {
     font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 25px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
 }
 
-.seccion-contacto form {
-    max-width: 500px;
-    margin: 0 auto;
+.datos-contacto strong {
+    color: var(--text-color);
+}
+
+.formulario-contacto {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
 }
 
 .seccion-contacto input,
 .seccion-contacto textarea {
     padding: 12px;
-    border: 1px solid #CCCCCC;
-    border-radius: 6px;
     font-family: inherit;
     font-size: 0.9rem;
+    color: var(--text-color);
+    background-color: var(--white);
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .seccion-contacto input:focus,
 .seccion-contacto textarea:focus {
     outline: none;
-    border-color: var(--yellow-bell); /* Resalta el borde al hacer clic */
+    border-color: var(--yellow-bell);
+    box-shadow: 0 0 0 3px rgba(251, 192, 45, 0.25);
 }
 
-/* Botón con estilo de la paleta (Amarillo Pimiento) */
+.seccion-contacto textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
 .boton {
-    background-color: var(--yellow-bell);
+    padding: 13px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
     color: #000000;
-    padding: 12px;
+    background-color: var(--yellow-bell);
     border: none;
     border-radius: 6px;
-    font-weight: 700;
-    font-size: 0.9rem;
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .boton:hover {
-    opacity: 0.85;
-    transform: scale(1.1);
+    background-color: #F0B31E;
+    transform: translateY(-2px);
 }
 
+.boton:active {
+    transform: translateY(0);
+}
 
-/* ==========================================
-   7. PIE DE PÁGINA (FOOTER)
-   ========================================== */
 .pie-pagina {
-    background-color: var(--bg-dark);
-    color: #90A4AE;
+    padding: 35px 20px;
     text-align: center;
-    padding: 30px 20px;
     font-size: 0.85rem;
+    color: #90A4AE;
+    background-color: var(--bg-dark);
 }
 
 .pie-pagina p {
     margin-bottom: 6px;
 }
 
+.footer-empresa {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--yellow-bell);
+    margin-bottom: 12px;
+}
 
-/* ==========================================
-   8. DISEÑO RESPONSIVO (MEDIA QUERIES)
-   ========================================== */
+.lista-integrantes {
+    display: inline-block;
+    margin-bottom: 14px;
+    text-align: center;
+}
 
-/* Para tablets y pantallas medianas (menor a 900px) */
+.lista-integrantes li {
+    margin-bottom: 4px;
+}
+
+.footer-copy {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #333333;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 900px) {
-    /* La franja oscura apila texto y logo para no romper en pantallas menores */
+
     .contenedor-header {
         flex-direction: column;
         text-align: center;
@@ -408,7 +490,7 @@ h2::after {
         min-height: auto;
     }
 
-    .contenido-heder {
+    .contenido-header {
         max-width: 100%;
     }
 
@@ -431,26 +513,118 @@ h2::after {
         max-width: 100%;
     }
 
-    .seccion-mision-vision {
+    .bloque-mision-vision {
         flex-direction: column;
     }
 
-    .grid-servicios {
-        grid-template-columns: repeat(2, 1fr); /* Pasa de 3 a 2 columnas en el menú */
+    .contenedor-contacto {
+        grid-template-columns: 1fr;
     }
 }
 
-/* Para teléfonos móviles (menor a 600px) */
-@media (max-width: 600px) {
+@media (max-width: 760px) {
+
+    .menu-hamburguesa {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        cursor: pointer;
+    }
+
+    .menu-hamburguesa span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        border-radius: 2px;
+        background-color: var(--text-color);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
     .links-nav {
-        display: none; /* Oculta los enlaces en pantallas muy pequeñas para mantener limpieza */
+        position: absolute;
+        top: var(--navbar-height);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0 20px;
+        background-color: var(--white);
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .menu-toggle:checked ~ .links-nav {
+        max-height: 420px;
+        padding: 8px 20px 16px;
+    }
+
+    .links-nav li {
+        border-bottom: 1px solid var(--border-soft);
+    }
+
+    .links-nav a {
+        display: block;
+        padding: 14px 4px;
+        font-size: 0.95rem;
+    }
+
+    .menu-toggle:checked + .menu-hamburguesa span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-toggle:checked + .menu-hamburguesa span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle:checked + .menu-hamburguesa span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .menu-toggle:focus-visible + .menu-hamburguesa {
+        outline: 2px solid var(--vibrant-red);
+        border-radius: 6px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .brand-title {
+        font-size: 0.95rem;
     }
 
     .header h1 {
-        font-size: 2.2rem;
+        font-size: 1.9rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .bloque-nosotros,
+    .mision,
+    .vision,
+    .datos-contacto {
+        padding: 22px;
     }
 
     .grid-servicios {
-        grid-template-columns: 1fr; /* Pasa el menú a 1 sola columna vertical */
+        grid-template-columns: 1fr;
+    }
+
+    .servicio img {
+        height: 190px;
     }
 }
+
