@@ -1,0 +1,399 @@
+/* --------------------------------------------------------------------------
+   Página: Lista de pedidos con JavaScript - Programación II
+   -------------------------------------------------------------------------- */
+
+.header-pedidos {
+    border-bottom-color: var(--yellow-bell);
+}
+
+.lema-pedidos {
+    max-width: none;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--yellow-bell);
+}
+
+.header-pedidos .subtitulo-pedidos {
+    max-width: none;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.5px;
+}
+
+.header-pedidos .etiqueta-seccion {
+    display: inline-block;
+    max-width: none;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--bg-dark);
+    background-color: var(--yellow-bell);
+    border-radius: 999px;
+}
+
+.header-pedidos .descripcion-pedidos {
+    max-width: 520px;
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #D7CCC8;
+}
+
+.seccion-pedidos {
+    padding-top: 50px;
+    padding-bottom: 60px;
+    border-bottom: none;
+}
+
+.intro-pedidos {
+    max-width: 720px;
+    margin: 0 auto 26px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.aviso-cookies {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+    color: #7A4A00;
+    background-color: #FFF4D6;
+    border: 1px solid #F4D58A;
+    border-left: 4px solid var(--yellow-bell);
+    border-radius: 6px;
+    line-height: 1.5;
+}
+
+/* Formulario ----------------------------------------------------------------- */
+
+.formulario-pedido {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: end;
+    padding: 24px;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 18px;
+}
+
+.formulario-pedido .campo {
+    min-width: 0;
+}
+
+.formulario-pedido input {
+    width: 100%;
+    padding: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background-color: var(--white);
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formulario-pedido input:focus {
+    outline: none;
+    border-color: var(--yellow-bell);
+    box-shadow: 0 0 0 3px rgba(251, 192, 45, 0.25);
+}
+
+.formulario-pedido .boton {
+    padding: 12px 24px;
+    white-space: nowrap;
+}
+
+/* Mensajes y resumen --------------------------------------------------------- */
+
+.mensaje-pedidos {
+    min-height: 0;
+    margin-bottom: 16px;
+    padding: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: opacity 0.2s ease;
+}
+
+.mensaje-pedidos.visible {
+    padding: 10px 14px;
+}
+
+.mensaje-ok {
+    color: #1B5E20;
+    background-color: #E8F5E9;
+    border-left: 4px solid var(--leafy-green);
+}
+
+.mensaje-error {
+    color: #B71C1C;
+    background-color: #FDECEA;
+    border-left: 4px solid var(--vibrant-red);
+}
+
+.resumen-pedidos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+    padding: 0 4px;
+}
+
+.contador-pedidos {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.boton-secundario {
+    padding: 8px 14px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-color);
+    background-color: transparent;
+    border: 1px solid #CCCCCC;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.boton-secundario:hover:not(:disabled) {
+    color: var(--vibrant-red);
+    border-color: var(--vibrant-red);
+    background-color: #FDECEA;
+}
+
+.boton-secundario:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Lista de pedidos ----------------------------------------------------------- */
+
+.lista-pedidos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.pedido-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background-color: var(--white);
+    border: 1px solid #E0E0E0;
+    border-left: 4px solid var(--yellow-bell);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.pedido-item:hover {
+    box-shadow: var(--shadow-soft);
+}
+
+.pedido-item.atrasado {
+    border-left-color: var(--vibrant-red);
+}
+
+.pedido-item.entregado {
+    border-left-color: var(--leafy-green);
+    background-color: #F7FBF7;
+}
+
+.pedido-check {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.pedido-check input {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--leafy-green);
+    cursor: pointer;
+}
+
+.pedido-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    min-width: 0;
+}
+
+.pedido-texto {
+    font-size: 0.95rem;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.pedido-item.entregado .pedido-texto {
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.pedido-fecha {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+.etiqueta-estado {
+    padding: 1px 8px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.etiqueta-entregado {
+    color: var(--white);
+    background-color: var(--leafy-green);
+}
+
+.etiqueta-atrasado {
+    color: var(--white);
+    background-color: var(--vibrant-red);
+}
+
+.etiqueta-pendiente {
+    color: #7A5B00;
+    background-color: #FFF3CD;
+}
+
+.pedido-acciones,
+.editar-acciones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.boton-icono {
+    padding: 7px 12px;
+    font-family: inherit;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.boton-icono:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+}
+
+.boton-editar {
+    color: #7A5B00;
+    background-color: #FFF3CD;
+    border-color: #F1D98A;
+}
+
+.boton-eliminar {
+    color: #B71C1C;
+    background-color: #FDECEA;
+    border-color: #F3C1BD;
+}
+
+.boton-guardar {
+    color: #1B5E20;
+    background-color: #E8F5E9;
+    border-color: #B9DDBB;
+}
+
+.boton-cancelar {
+    color: var(--text-color);
+    background-color: #EEEEEE;
+    border-color: #DDDDDD;
+}
+
+.editar-texto {
+    width: 100%;
+    padding: 9px 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    border: 1px solid var(--yellow-bell);
+    border-radius: 6px;
+}
+
+.editar-texto:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(251, 192, 45, 0.25);
+}
+
+.editar-acciones {
+    justify-content: flex-end;
+}
+
+.lista-vacia {
+    padding: 34px 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 2px dashed #DDD5CC;
+    border-radius: var(--radius);
+}
+
+/* Adaptación a pantallas pequeñas -------------------------------------------- */
+
+@media (max-width: 900px) {
+    .formulario-pedido {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .formulario-pedido .boton {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .formulario-pedido {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .pedido-item {
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 14px;
+    }
+
+    .pedido-contenido {
+        flex-basis: calc(100% - 40px);
+    }
+
+    .pedido-acciones {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .resumen-pedidos {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-pedidos .descripcion-pedidos {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
