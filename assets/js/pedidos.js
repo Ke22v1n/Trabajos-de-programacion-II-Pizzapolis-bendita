@@ -1,10 +1,5 @@
 'use strict';
 
-/*
- * Lista de pedidos con JavaScript - Programación II
- * Los pedidos y su estado de entrega se guardan en una cookie del navegador.
- */
-
 const NOMBRE_COOKIE = 'pedidos_programacion2';
 const DIAS_COOKIE = 365;
 
@@ -21,10 +16,6 @@ const avisoCookies = document.getElementById('aviso-cookies');
 let pedidos = cargarPedidos();
 let idEnEdicion = null;
 let temporizadorMensaje = null;
-
-/* --------------------------------------------------------------------------
-   Utilidades para las cookies
-   -------------------------------------------------------------------------- */
 
 function guardarCookie(nombre, valor, dias) {
     const fechaExpiracion = new Date();
@@ -63,10 +54,6 @@ function cookiesDisponibles() {
     borrarCookie('prueba_cookies_pedidos');
     return disponible;
 }
-
-/* --------------------------------------------------------------------------
-   Estado de los pedidos (lectura y escritura en la cookie)
-   -------------------------------------------------------------------------- */
 
 function generarId() {
     if (window.crypto && typeof window.crypto.randomUUID === 'function') {
@@ -111,10 +98,6 @@ function guardarPedidos() {
     guardarCookie(NOMBRE_COOKIE, JSON.stringify(pedidos), DIAS_COOKIE);
 }
 
-/* --------------------------------------------------------------------------
-   Utilidades de fechas
-   -------------------------------------------------------------------------- */
-
 function formatearFecha(fechaISO) {
     if (!fechaISO) {
         return 'Sin fecha de entrega';
@@ -139,10 +122,6 @@ function fechaDeHoy() {
 function estaAtrasado(pedido) {
     return !pedido.entregado && pedido.fecha !== '' && pedido.fecha < fechaDeHoy();
 }
-
-/* --------------------------------------------------------------------------
-   Render de la lista
-   -------------------------------------------------------------------------- */
 
 function crearBoton(texto, clase, accion, etiquetaAccesible) {
     const boton = document.createElement('button');
@@ -171,7 +150,6 @@ function crearElementoPedido(pedido) {
         elemento.classList.add('atrasado');
     }
 
-    /* Check para marcar el pedido como entregado */
     const etiquetaCheck = document.createElement('label');
     etiquetaCheck.className = 'pedido-check';
 
@@ -185,7 +163,6 @@ function crearElementoPedido(pedido) {
 
     etiquetaCheck.appendChild(checkbox);
 
-    /* Contenido: pedido, fecha, estado, edición o acciones */
     const contenido = document.createElement('div');
     contenido.className = 'pedido-contenido';
 
@@ -341,10 +318,6 @@ function mostrarMensaje(texto, tipo) {
     }, 3500);
 }
 
-/* --------------------------------------------------------------------------
-   Acciones de los pedidos
-   -------------------------------------------------------------------------- */
-
 function agregarPedido(evento) {
     evento.preventDefault();
 
@@ -474,10 +447,6 @@ function eliminarEntregados() {
     renderizar();
     mostrarMensaje('Pedidos entregados eliminados.', 'ok');
 }
-
-/* --------------------------------------------------------------------------
-   Inicialización
-   -------------------------------------------------------------------------- */
 
 formulario.addEventListener('submit', agregarPedido);
 botonLimpiar.addEventListener('click', eliminarEntregados);
