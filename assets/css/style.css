@@ -590,6 +590,319 @@ h2::after {
     }
 }
 
+.franja-publicidad {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 20px 12px;
+    overflow: hidden;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #FFF8F1;
+    background-image: linear-gradient(90deg, #8E1B12, #E53935 45%, #F5A623);
+}
+
+.etiqueta-publicidad {
+    flex-shrink: 0;
+    padding: 3px 9px;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #FFF8F1;
+    background-color: rgba(0, 0, 0, 0.32);
+    border-radius: 5px;
+}
+
+.franja-ventana {
+    position: relative;
+    flex: 1;
+    height: 24px;
+    overflow: hidden;
+}
+
+.franja-pista {
+    position: absolute;
+    inset: 0;
+}
+
+.franja-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
+    animation: anuncioRotativo 15s linear infinite;
+}
+
+.franja-slide:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.franja-slide:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.franja-icono {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 23px;
+    height: 23px;
+    font-size: 0.78rem;
+    background-color: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+}
+
+.franja-slide strong {
+    font-weight: 800;
+    letter-spacing: 0.1px;
+}
+
+.franja-detalle {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    color: rgba(255, 248, 241, 0.82);
+}
+
+.franja-detalle::before {
+    content: "· ";
+}
+
+.franja-publicidad:hover .franja-slide,
+.franja-publicidad:hover .franja-progreso span,
+.franja-publicidad:hover .franja-puntos i {
+    animation-play-state: paused;
+}
+
+.franja-puntos {
+    display: flex;
+    flex-shrink: 0;
+    gap: 5px;
+    align-items: center;
+}
+
+.franja-puntos i {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: #FFF8F1;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: puntoActivo 15s linear infinite;
+}
+
+.franja-puntos i:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.franja-puntos i:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.franja-progreso {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.18);
+}
+
+.franja-progreso span {
+    display: block;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85);
+    transform: scaleX(0);
+    transform-origin: left center;
+    animation: progresoFranja 15s linear infinite;
+}
+
+@keyframes anuncioRotativo {
+    0% {
+        opacity: 0;
+        transform: translateY(9px);
+    }
+    1% {
+        opacity: 1;
+        transform: none;
+    }
+    33.33% {
+        opacity: 1;
+        transform: none;
+    }
+    34.6% {
+        opacity: 0;
+        transform: translateY(-9px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-9px);
+    }
+}
+
+@keyframes progresoFranja {
+    0% {
+        transform: scaleX(0);
+    }
+    33.33% {
+        transform: scaleX(1);
+    }
+    33.34% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+@keyframes puntoActivo {
+    0% {
+        opacity: 1;
+    }
+    32% {
+        opacity: 1;
+    }
+    34.6% {
+        opacity: 0.35;
+    }
+    100% {
+        opacity: 0.35;
+    }
+}
+
+@keyframes anuncioRotativoSuave {
+    0% {
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    33.33% {
+        opacity: 1;
+    }
+    34.6% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.header {
+    background-size: 170% 170%;
+    animation: degradadoVivo 20s ease infinite;
+}
+
+.header h1 {
+    animation: aparecerArriba 0.7s ease backwards;
+}
+
+.header .contenido-header p {
+    animation: aparecerArriba 0.7s ease 0.12s backwards;
+}
+
+.logo-header img {
+    animation: flotarSuave 7s ease-in-out infinite;
+}
+
+.bloque-nosotros {
+    animation: aparecerArriba 0.7s ease backwards;
+}
+
+.mision,
+.vision {
+    animation: aparecerArriba 0.7s ease 0.1s backwards;
+}
+
+.vision {
+    animation-delay: 0.2s;
+}
+
+.grid-servicios .servicio {
+    animation: aparecerArriba 0.6s ease backwards;
+}
+
+.grid-servicios .servicio:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.grid-servicios .servicio:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.grid-servicios .servicio:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+@keyframes aparecerArriba {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
+@keyframes flotarSuave {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes degradadoVivo {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .js .revelar {
+        opacity: 1;
+        transform: none;
+    }
+
+    .franja-slide {
+        animation-name: anuncioRotativoSuave !important;
+        animation-duration: 15s !important;
+        animation-timing-function: linear !important;
+        animation-iteration-count: infinite !important;
+    }
+
+    .franja-progreso span {
+        animation-duration: 15s !important;
+        animation-iteration-count: infinite !important;
+    }
+
+    .franja-puntos i {
+        animation-duration: 15s !important;
+        animation-iteration-count: infinite !important;
+    }
+}
+
 @media (max-width: 600px) {
 
     .brand-title {
@@ -626,5 +939,34 @@ h2::after {
     .servicio img {
         height: 190px;
     }
-}
 
+    .franja-publicidad {
+        gap: 9px;
+        padding: 9px 14px 11px;
+        font-size: 0.72rem;
+    }
+
+    .etiqueta-publicidad {
+        padding: 3px 7px;
+        font-size: 0.54rem;
+        letter-spacing: 0.5px;
+    }
+
+    .franja-ventana {
+        height: 21px;
+    }
+
+    .franja-slide {
+        gap: 7px;
+    }
+
+    .franja-icono {
+        width: 20px;
+        height: 20px;
+        font-size: 0.68rem;
+    }
+
+    .franja-detalle {
+        display: none;
+    }
+}
